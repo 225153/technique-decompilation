@@ -1,0 +1,5 @@
+=== Résultats ===
+Nombre de mots     : 10
+Nombre de lignes   : 3
+Nombre de caractères: 48
+Somme des nombres  : 152

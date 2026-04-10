@@ -1,0 +1,37 @@
+# Flex generated files
+lex.yy.c
+
+# Bison generated files
+*.tab.c
+*.tab.h
+*.output
+
+# Compiled object files
+*.o
+
+# Executables
+# To ignore all files without extension (common for Linux executables)
+# and .exe files (common for Windows executables)
+*.exe
+# This pattern matches files that don't have a dot in their name.
+# It might need adjustment based on the specific workflow, 
+# but often it's safer to list specific executable names 
+# or use a more specific build directory.
+# However, adding common executable names from the workspace:
+binaire
+id
+id_nb
+pairpair
+stats
+telephone
+sql
+complet
+ex1
+ex1_calc
+ex1_sousdiv
+grammaire
+
+# OS junk files
+.DS_Store
+Thumbs.db
+desktop.ini

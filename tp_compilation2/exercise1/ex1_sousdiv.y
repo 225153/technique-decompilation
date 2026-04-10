@@ -1,0 +1,58 @@
+%{
+#include <stdio.h>
+int yylex(void);
+int yyerror(char *s);
+%}
+
+%token FIN SOM PROD SOUS DIV NB
+
+%%
+
+liste : FIN
+            { printf("Analyse terminee.\n"); }
+      | SOM listesom '.' liste
+            { printf("Somme      = %d\n", $2); }
+      | PROD listeprod '.' liste
+            { printf("Produit    = %d\n", $2); }
+      | SOUS listesous '.' liste
+            { printf("Soustraction = %d\n", $2); }
+      | DIV listediv '.' liste
+            { printf("Division   = %d\n", $2); }
+      ;
+
+listesom  : NB                { $$ = $1; }
+          | listesom ',' NB   { $$ = $1 + $3; }
+          ;
+
+listeprod : NB                { $$ = $1; }
+          | listeprod ',' NB  { $$ = $1 * $3; }
+          ;
+
+listesous : NB                { $$ = $1; }
+          | listesous ',' NB  { $$ = $1 - $3; }
+          ;
+
+listediv  : NB                { $$ = $1; }
+          | listediv ',' NB   {
+                if ($3 == 0) {
+                    printf("Erreur : division par zero !\n");
+                    $$ = 0;
+                } else {
+                    $$ = $1 / $3;
+                }
+            }
+          ;
+
+%%
+
+#include "lex.yy.c"
+
+int yyerror(char *s) {
+    printf("Erreur syntaxique : %s\n", s);
+    return 0;
+}
+
+int main() {
+    yyparse();
+    return 0;
+}

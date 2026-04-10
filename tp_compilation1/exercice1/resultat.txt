@@ -1,0 +1,5 @@
+'1010' est un nombre binaire
+'hello' n'est PAS un nombre binaire
+'0011' est un nombre binaire
+'123' n'est PAS un nombre binaire
+'1111' est un nombre binaire
