@@ -122,8 +122,9 @@ public:
         
         // Lire la première ligne (headers)
         if(getline(file, line)) {
+            for(char& c : line) if(c == ',') c = ' '; // Convertir les virgules en espaces
             stringstream ss(line);
-            while(getline(ss, word, ',')) {
+            while(ss >> word) { // ss >> word ignore automatiquement les multi-espaces
                 if (!word.empty() && word.back() == '\r') word.pop_back();
                 table.headers.push_back(word);
             }
@@ -132,10 +133,11 @@ public:
         // Lire les données
         while(getline(file, line)) {
             if(line.empty()) continue;
+            for(char& c : line) if(c == ',') c = ' '; // Convertir les virgules en espaces
             stringstream ss2(line);
             map<string, string> row;
             int i = 0;
-            while(getline(ss2, word, ',')) {
+            while(ss2 >> word) {
                 if (!word.empty() && word.back() == '\r') word.pop_back();
                 if (i < table.headers.size()) row[table.headers[i]] = word;
                 i++;

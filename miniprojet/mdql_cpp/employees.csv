@@ -1,7 +1,8 @@
-name,age,salary
-Ali,22,1200
-Sara,25,1500
-Omar,30,2000
-Karim,40,900
-Lina,28,1400
-Foued,30,5000
+id   name    age   salary   department   city       experience
+E01  Ali     22    1200     IT           Tunis      1
+E02  Sara    25    1500     RH           Sfax       3
+E03  Omar    30    2000     Finance      Tunis      7
+E04  Karim   40    900      IT           Sousse     15
+E05  Lina    28    1400     Marketing    Tunis      5
+E06  Foued   30    5000     Finance      Jandouba   10
+E07  Fares   50    10000    Management   Mahdia     30

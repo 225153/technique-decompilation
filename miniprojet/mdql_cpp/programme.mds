@@ -1,9 +1,1 @@
-LOAD employees.csv AS employees;
-PRINT 11111111; -- Séparateur visuel
-FOR EACH p IN employees {
-  IF p.salary < 1000 {
-    PRINT p.name;
-    PRINT p.age;
-  }
-}
-PRINT 22222222; -- Fin de rapport
+LOAD employees.csv AS emp; FOR EACH row IN emp { IF row.city == "Tunis" { IF row.experience > 3 { PRINT row.name; } } }
